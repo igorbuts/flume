@@ -4635,7 +4635,7 @@ var classnames = createCommonjsModule(function (module) {
 }());
 });
 
-var css$2 = ".Node_wrapper__3SmT7{\n  background: rgba(91, 96, 99, 0.9);\n  border-radius: 5px;\n  box-shadow: 0px 4px 8px rgba(0,0,0,.4);\n  position: absolute;\n  left: 0px;\n  top: 0px;\n  user-select: none;\n  display: flex;\n  flex-direction: column;\n  z-index: 1;\n  cursor: default;\n  border: 1px solid transparent;\n\n}\n\n.Node_wrapper__3SmT7.Node_active__3wVm5 {\n  border: 1px solid cyan;\n}\n\n.Node_label__3MmhF{\n  color: cyan;\n  font-size: 13px;\n  text-transform: uppercase;\n  padding: 5px;\n  background: #464b4e;\n  border-radius: 5px 5px 0px 0px;\n  margin: 0px;\n  margin-bottom: 3px;\n  border-bottom: 1px solid rgba(0,0,0,.15);\n}\n";
+var css$2 = ".Node_wrapper__3SmT7{\n  background: rgba(91, 96, 99, 0.9);\n  border-radius: 5px;\n  box-shadow: 0px 4px 8px rgba(0,0,0,.4);\n  position: absolute;\n  left: 0px;\n  top: 0px;\n  user-select: none;\n  display: flex;\n  flex-direction: column;\n  z-index: 1;\n  cursor: default;\n  border: 1px solid transparent;\n}\n\n.Node_wrapper__3SmT7.Node_active__3wVm5 {\n  border: 1px solid cyan;\n}\n\n.Node_label__3MmhF{\n  color: cyan;\n  font-size: 13px;\n  text-transform: uppercase;\n  padding: 5px;\n  background: #464b4e;\n  border-radius: 5px 5px 0px 0px;\n  margin: 0px;\n  margin-bottom: 3px;\n  border-bottom: 1px solid rgba(0,0,0,.15);\n}\n";
 var styles$2 = { "wrapper": "Node_wrapper__3SmT7", "active": "Node_active__3wVm5", "label": "Node_label__3MmhF" };
 styleInject(css$2);
 
@@ -7683,7 +7683,8 @@ var NodeEditor = function NodeEditor(_ref, ref) {
       _ref$onNodeClick = _ref.onNodeClick,
       onNodeClick = _ref$onNodeClick === undefined ? function () {} : _ref$onNodeClick,
       circularBehavior = _ref.circularBehavior,
-      debug = _ref.debug;
+      debug = _ref.debug,
+      exportDispatchNodesFn = _ref.exportDispatchNodesFn;
 
   var editorId = useId();
   var cache = React.useRef(new Cache());
@@ -7726,6 +7727,9 @@ var NodeEditor = function NodeEditor(_ref, ref) {
 
   React.useEffect(function () {
     dispatchNodes({ type: "HYDRATE_DEFAULT_NODES" });
+
+    // NOTE: export dispatchNodes function for the outer world
+    exportDispatchNodesFn({ dispatch: dispatchNodes });
   }, []);
 
   var _React$useState5 = React.useState(true),
