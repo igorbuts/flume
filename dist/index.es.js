@@ -4635,7 +4635,7 @@ var classnames = createCommonjsModule(function (module) {
 }());
 });
 
-var css$2 = ".Node_wrapper__3SmT7{\n  background: rgba(91, 96, 99, 0.9);\n  border-radius: 5px;\n  box-shadow: 0px 4px 8px rgba(0,0,0,.4);\n  position: absolute;\n  left: 0px;\n  top: 0px;\n  user-select: none;\n  display: flex;\n  flex-direction: column;\n  z-index: 1;\n  cursor: default;\n}\n\n.Node_wrapper__3SmT7.Node_active__3wVm5 {\n  border: 1px solid cyan;\n}\n\n.Node_label__3MmhF{\n  color: cyan;\n  font-size: 13px;\n  text-transform: uppercase;\n  padding: 5px;\n  background: #464b4e;\n  border-radius: 5px 5px 0px 0px;\n  margin: 0px;\n  margin-bottom: 3px;\n  border-bottom: 1px solid rgba(0,0,0,.15);\n}\n";
+var css$2 = ".Node_wrapper__3SmT7{\n  background: rgba(91, 96, 99, 0.9);\n  border-radius: 5px;\n  box-shadow: 0px 4px 8px rgba(0,0,0,.4);\n  position: absolute;\n  left: 0px;\n  top: 0px;\n  user-select: none;\n  display: flex;\n  flex-direction: column;\n  z-index: 1;\n  cursor: default;\n  border: 1px solid transparent;\n\n}\n\n.Node_wrapper__3SmT7.Node_active__3wVm5 {\n  border: 1px solid cyan;\n}\n\n.Node_label__3MmhF{\n  color: cyan;\n  font-size: 13px;\n  text-transform: uppercase;\n  padding: 5px;\n  background: #464b4e;\n  border-radius: 5px 5px 0px 0px;\n  margin: 0px;\n  margin-bottom: 3px;\n  border-bottom: 1px solid rgba(0,0,0,.15);\n}\n";
 var styles$2 = { "wrapper": "Node_wrapper__3SmT7", "active": "Node_active__3wVm5", "label": "Node_label__3MmhF" };
 styleInject(css$2);
 
@@ -6062,6 +6062,11 @@ var Node = function Node(_ref) {
       menuCoordinates = _React$useState4[0],
       setMenuCoordinates = _React$useState4[1];
 
+  var _React$useState5 = React.useState(false),
+      _React$useState6 = slicedToArray(_React$useState5, 2),
+      isDraggingNode = _React$useState6[0],
+      setIsDraggingNode = _React$useState6[1];
+
   var byScale = function byScale(value) {
     return 1 / stageState.scale * value;
   };
@@ -6119,6 +6124,10 @@ var Node = function Node(_ref) {
     }, coordinates, {
       nodeId: id
     }));
+
+    setTimeout(function () {
+      return setIsDraggingNode(false);
+    });
   };
 
   var handleDrag = function handleDrag(_ref4) {
@@ -6130,6 +6139,7 @@ var Node = function Node(_ref) {
   };
 
   var startDrag = function startDrag(e) {
+    setIsDraggingNode(true);
     onDragStart();
   };
 
@@ -6173,8 +6183,13 @@ var Node = function Node(_ref) {
       onDrag: handleDrag,
       onDragEnd: stopDrag,
       onClick: function onClick() {
-        return onNodeClick({ id: id, type: type, x: x, y: y, width: width, height: height });
+        if (isDraggingNode) {
+          return;
+        }
+
+        onNodeClick({ id: id, type: type, x: x, y: y, width: width, height: height });
       },
+
       innerRef: nodeWrapper,
       "data-node-id": id,
       onContextMenu: handleContextMenu,
@@ -7701,13 +7716,13 @@ var NodeEditor = function NodeEditor(_ref, ref) {
       comments = _React$useReducer6[0],
       dispatchComments = _React$useReducer6[1];
 
-  var onNodeClickHandler = function onNodeClickHandler(props) {
+  var onNodeClickHandler = React.useCallback(function (props) {
     var id = props.id;
 
 
     setActiveNodeId(id);
     onNodeClick(props);
-  };
+  }, [onNodeClick, setActiveNodeId]);
 
   React.useEffect(function () {
     dispatchNodes({ type: "HYDRATE_DEFAULT_NODES" });

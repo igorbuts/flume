@@ -73,12 +73,15 @@ export let NodeEditor = (
     commentsReducer,
     initialComments || {}
   );
-  const onNodeClickHandler = props => {
+
+  const onNodeClickHandler = React.useCallback(props => {
     const { id } = props;
 
     setActiveNodeId(id);
     onNodeClick(props);
-  }
+  }, [onNodeClick, setActiveNodeId])
+
+
 
   React.useEffect(() => {
     dispatchNodes({ type: "HYDRATE_DEFAULT_NODES" });
