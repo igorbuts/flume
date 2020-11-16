@@ -10,6 +10,7 @@
   flex-direction: column;
   z-index: 1;
   cursor: default;
+  border: 1px solid transparent;
 }
 
 .wrapper.active {

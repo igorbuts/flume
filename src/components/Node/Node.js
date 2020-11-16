@@ -39,6 +39,7 @@ const Node = ({
   const nodeWrapper = React.useRef();
   const [menuOpen, setMenuOpen] = React.useState(false);
   const [menuCoordinates, setMenuCoordinates] = React.useState({ x: 0, y: 0 });
+  const [isDraggingNode, setIsDraggingNode] = React.useState(false);
 
   const byScale = (value) => (1 / stageState.scale) * value;
 
@@ -122,6 +123,8 @@ const Node = ({
       ...coordinates,
       nodeId: id,
     });
+
+    setTimeout(() => setIsDraggingNode(false))
   };
 
   const handleDrag = ({ x, y }) => {
@@ -130,6 +133,7 @@ const Node = ({
   };
 
   const startDrag = (e) => {
+    setIsDraggingNode(true)
     onDragStart();
   };
 
@@ -169,7 +173,14 @@ const Node = ({
       onDragStart={startDrag}
       onDrag={handleDrag}
       onDragEnd={stopDrag}
-      onClick={() => onNodeClick({ id, type, x, y, width, height })}
+      onClick={() => {
+        if (isDraggingNode) {
+          return
+        }
+
+        onNodeClick({ id, type, x, y, width, height })
+      }}
+
       innerRef={nodeWrapper}
       data-node-id={id}
       onContextMenu={handleContextMenu}
