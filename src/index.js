@@ -50,7 +50,8 @@ export let NodeEditor = (
     disablePan = false,
     onNodeClick = () => {},
     circularBehavior,
-    debug
+    debug,
+    exportDispatchNodesFn,
   },
   ref
 ) => {
@@ -85,6 +86,9 @@ export let NodeEditor = (
 
   React.useEffect(() => {
     dispatchNodes({ type: "HYDRATE_DEFAULT_NODES" });
+
+    // NOTE: export dispatchNodes function for the outer world
+    exportDispatchNodesFn({ dispatch: dispatchNodes })
   }, []);
   const [
     shouldRecalculateConnections,
