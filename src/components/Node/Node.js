@@ -35,7 +35,7 @@ const Node = ({
   const nodeTypes = React.useContext(NodeTypesContext);
   const nodesDispatch = React.useContext(NodeDispatchContext);
   const stageState = React.useContext(StageContext);
-  const {label, description, deletable, inputs = [], outputs = []} = nodeTypes[type];
+  const {label, description, iconColor, deletable, inputs = [], outputs = []} = nodeTypes[type];
 
   const nodeWrapper = React.useRef();
   const [menuOpen, setMenuOpen] = React.useState(false);
@@ -44,21 +44,8 @@ const Node = ({
 
   const byScale = (value) => (1 / stageState.scale) * value;
 
-  const getIconLabelColor = type => {
-    switch (type) {
-      case NODE_TYPES.WG:
-        return '#ffd400'
-      case NODE_TYPES.WA:
-        return '#0de99b'
-      case NODE_TYPES.FILTER:
-        return '#8a59ff'
-      default:
-        return '#60eaff'
-    }
-  }
-
   const iconLabelStyles = {
-    backgroundColor: getIconLabelColor(type)
+    backgroundColor: iconColor
   }
 
   const updateConnectionsByTransput = (transput = {}, isOutput) => {

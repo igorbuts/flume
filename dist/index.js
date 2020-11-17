@@ -4354,16 +4354,6 @@ var STAGE_ID = '__node_editor_stage__';
 var DRAG_CONNECTION_ID = '__node_editor_drag_connection__';
 var CONNECTIONS_ID = '__node_editor_connections__';
 
-var WG = 'wg';
-var WA = 'wa';
-var FILTER = 'fl';
-
-var NODE_TYPES = {
-  WG: WG,
-  WA: WA,
-  FILTER: FILTER
-};
-
 var Stage = function Stage(_ref) {
   var scale = _ref.scale,
       translate = _ref.translate,
@@ -5704,8 +5694,7 @@ var IoPorts = function IoPorts(_ref2) {
   var triggerRecalculation = React__default.useContext(ConnectionRecalculateContext);
   var resolvedInputs = useTransputs(inputs, 'input', nodeId, inputData, connections);
   var resolvedOutputs = useTransputs(outputs, 'output', nodeId, inputData, connections);
-  console.log(resolvedInputs);
-  console.log(resolvedOutputs);
+
   return React__default.createElement(
     "div",
     { className: styles$4.wrapper },
@@ -6062,6 +6051,7 @@ var Node = function Node(_ref) {
   var _nodeTypes$type = nodeTypes[type],
       label = _nodeTypes$type.label,
       description = _nodeTypes$type.description,
+      iconColor = _nodeTypes$type.iconColor,
       deletable = _nodeTypes$type.deletable,
       _nodeTypes$type$input = _nodeTypes$type.inputs,
       inputs = _nodeTypes$type$input === undefined ? [] : _nodeTypes$type$input,
@@ -6090,21 +6080,8 @@ var Node = function Node(_ref) {
     return 1 / stageState.scale * value;
   };
 
-  var getIconLabelColor = function getIconLabelColor(type) {
-    switch (type) {
-      case NODE_TYPES.WG:
-        return '#ffd400';
-      case NODE_TYPES.WA:
-        return '#0de99b';
-      case NODE_TYPES.FILTER:
-        return '#8a59ff';
-      default:
-        return '#60eaff';
-    }
-  };
-
   var iconLabelStyles = {
-    backgroundColor: getIconLabelColor(type)
+    backgroundColor: iconColor
   };
 
   var updateConnectionsByTransput = function updateConnectionsByTransput() {
@@ -6431,6 +6408,9 @@ var FlumeConfig = function () {
       if (typeof config.type !== "string") {
         throw new Error("Required key, \"type\" must be a string when calling addNodeType.");
       }
+      if (typeof config.iconColor !== "string") {
+        throw new Error("\"iconColor\" must be a string when calling addNodeType.");
+      }
       if (typeof config.initialWidth !== "undefined" && typeof config.initialWidth !== "number") {
         throw new Error("Optional key, \"initialWidth\" must be a number when calling addNodeType.");
       }
@@ -6442,7 +6422,8 @@ var FlumeConfig = function () {
         label: define(config.label, ""),
         description: define(config.description, ""),
         addable: define(config.addable, true),
-        deletable: define(config.deletable, true)
+        deletable: define(config.deletable, true),
+        iconColor: define(config.iconColor, "#60eaff")
       };
       if (config.initialWidth) {
         node.initialWidth = config.initialWidth;
