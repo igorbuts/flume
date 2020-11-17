@@ -138,6 +138,11 @@ export class FlumeConfig {
         `Required key, "type" must be a string when calling addNodeType.`
       );
     }
+    if (typeof config.iconColor !== "string") {
+      throw new Error(
+        `"iconColor" must be a string when calling addNodeType.`
+      );
+    }
     if (
       typeof config.initialWidth !== "undefined" &&
       typeof config.initialWidth !== "number"
@@ -156,7 +161,8 @@ export class FlumeConfig {
       label: define(config.label, ""),
       description: define(config.description, ""),
       addable: define(config.addable, true),
-      deletable: define(config.deletable, true)
+      deletable: define(config.deletable, true),
+      iconColor: define(config.iconColor, "#60eaff")
     };
     if (config.initialWidth) {
       node.initialWidth = config.initialWidth;
@@ -279,7 +285,7 @@ export class FlumeConfig {
           console.warn(
             `We've detected that one or more of your nodes is using dynamic inputs/outputs. This is a potentially dangerous operation as we are unable to detect if this portType is being used in one of those nodes. You can quiet this message by passing { skipDynamicNodesCheck: true } in as the second argument.`
           );
-        }  
+        }
       }
       const affectedNodes = Object.values(this.nodeTypes).filter(
         node =>

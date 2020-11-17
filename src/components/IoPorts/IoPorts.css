@@ -1,31 +1,30 @@
 .wrapper{
   display: flex;
-  flex-direction: column;
   margin-top: auto;
   width: 100%;
-  padding: 5px;
+  padding: 16px 5px 16px 5px;
 }
 .inputs{
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   width: 100%;
-  margin-bottom: 10px;
-  &:last-child{
-    margin-bottom: 0px;
-  }
-  .transput{
-    &:first-child{
-      .portLabel, .port{
-        margin-top: 5px;
-      }
-    }
-    &:last-child{
-      .portLabel, .port{
-        margin-bottom: 5px;
-      }
-    }
-  }
+  /*margin-bottom: 10px;*/
+  /*&:last-child{*/
+  /*  margin-bottom: 0px;*/
+  /*}*/
+  /*.transput{*/
+  /*  &:first-child{*/
+  /*    .portLabel, .port{*/
+  /*      margin-top: 5px;*/
+  /*    }*/
+  /*  }*/
+  /*  &:last-child{*/
+  /*    .portLabel, .port{*/
+  /*      margin-bottom: 5px;*/
+  /*    }*/
+  /*  }*/
+  /*}*/
 }
 .outputs{
   display: flex;
@@ -34,36 +33,36 @@
   justify-content: flex-end;
   align-items: flex-end;
   width: 100%;
-  .transput{
-    &:last-child{
-      .portLabel, .port{
-        margin-bottom: 5px;
-      }
-    }
-  }
-  &:first-child{
-    margin-top: 5px;
-  }
+  /*.transput{*/
+  /*  &:last-child{*/
+  /*    .portLabel, .port{*/
+  /*      margin-bottom: 5px;*/
+  /*    }*/
+  /*  }*/
+  /*}*/
+  /*&:first-child{*/
+  /*  margin-top: 5px;*/
+  /*}*/
 }
 .transput{
   display: flex;
   align-items: center;
-  margin-top: 6px;
-  margin-bottom: 6px;
-  &:first-child{
-    margin-top: 0px;
-  }
-  &[data-controlless="true"]{
-    margin-top: 6px;
-    margin-bottom: 6px;
-    &:first-child{
-      margin-top: 0px;
-    }
-  }
-  &[data-controlless="false"]{
-    margin-top: 2px;
-    margin-bottom: 2px;
-  }
+  /*margin-top: 6px;*/
+  /*margin-bottom: 6px;*/
+  /*&:first-child{*/
+  /*  margin-top: 0px;*/
+  /*}*/
+  /*&[data-controlless="true"]{*/
+  /*  margin-top: 6px;*/
+  /*  margin-bottom: 6px;*/
+  /*  &:first-child{*/
+  /*    margin-top: 0px;*/
+  /*  }*/
+  /*}*/
+  /*&[data-controlless="false"]{*/
+  /*  margin-top: 2px;*/
+  /*  margin-bottom: 2px;*/
+  /*}*/
 }
 .controls{
   display: flex;

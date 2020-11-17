@@ -7,41 +7,45 @@ import {
   StageContext,
   CacheContext,
 } from "../../context";
-import { getPortRect, calculateCurve } from "../../connectionCalculator";
-import { Portal } from "react-portal";
+import {getPortRect, calculateCurve} from "../../connectionCalculator";
+import {Portal} from "react-portal";
 import ContextMenu from "../ContextMenu/ContextMenu";
 import IoPorts from "../IoPorts/IoPorts";
 import Draggable from "../Draggable/Draggable";
 
 const Node = ({
-  id,
-  isActive,
-  width,
-  height,
-  x,
-  y,
-  delay = 6,
-  stageRect,
-  connections,
-  type,
-  inputData,
-  onDragStart,
-  onDragEnd,
-  onDrag,
-  onNodeClick,
-}) => {
+                id,
+                isActive,
+                width,
+                height,
+                x,
+                y,
+                delay = 6,
+                stageRect,
+                connections,
+                type,
+                inputData,
+                onDragStart,
+                onDragEnd,
+                onDrag,
+                onNodeClick,
+              }) => {
   const cache = React.useContext(CacheContext);
   const nodeTypes = React.useContext(NodeTypesContext);
   const nodesDispatch = React.useContext(NodeDispatchContext);
   const stageState = React.useContext(StageContext);
-  const { label, deletable, inputs = [], outputs = [] } = nodeTypes[type];
+  const {label, description, iconColor, deletable, inputs = [], outputs = []} = nodeTypes[type];
 
   const nodeWrapper = React.useRef();
   const [menuOpen, setMenuOpen] = React.useState(false);
-  const [menuCoordinates, setMenuCoordinates] = React.useState({ x: 0, y: 0 });
+  const [menuCoordinates, setMenuCoordinates] = React.useState({x: 0, y: 0});
   const [isDraggingNode, setIsDraggingNode] = React.useState(false);
 
   const byScale = (value) => (1 / stageState.scale) * value;
+
+  const iconLabelStyles = {
+    backgroundColor: iconColor
+  }
 
   const updateConnectionsByTransput = (transput = {}, isOutput) => {
     Object.entries(transput).forEach(([portName, outputs]) => {
@@ -77,32 +81,32 @@ const Node = ({
           x:
             byScale(
               toRect.x -
-                stageRect.current.x +
-                portHalf -
-                stageRect.current.width / 2
+              stageRect.current.x +
+              portHalf -
+              stageRect.current.width / 2
             ) + byScale(stageState.translate.x),
           y:
             byScale(
               toRect.y -
-                stageRect.current.y +
-                portHalf -
-                stageRect.current.height / 2
+              stageRect.current.y +
+              portHalf -
+              stageRect.current.height / 2
             ) + byScale(stageState.translate.y),
         };
         const to = {
           x:
             byScale(
               fromRect.x -
-                stageRect.current.x +
-                portHalf -
-                stageRect.current.width / 2
+              stageRect.current.x +
+              portHalf -
+              stageRect.current.width / 2
             ) + byScale(stageState.translate.x),
           y:
             byScale(
               fromRect.y -
-                stageRect.current.y +
-                portHalf -
-                stageRect.current.height / 2
+              stageRect.current.y +
+              portHalf -
+              stageRect.current.height / 2
             ) + byScale(stageState.translate.y),
         };
         cnx.setAttribute("d", calculateCurve(from, to));
@@ -127,7 +131,7 @@ const Node = ({
     setTimeout(() => setIsDraggingNode(false))
   };
 
-  const handleDrag = ({ x, y }) => {
+  const handleDrag = ({x, y}) => {
     nodeWrapper.current.style.transform = `translate(${x}px,${y}px)`;
     updateNodeConnections();
   };
@@ -140,7 +144,7 @@ const Node = ({
   const handleContextMenu = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    setMenuCoordinates({ x: e.clientX, y: e.clientY });
+    setMenuCoordinates({x: e.clientX, y: e.clientY});
     setMenuOpen(true);
     return false;
   };
@@ -149,7 +153,7 @@ const Node = ({
     setMenuOpen(false);
   };
 
-  const handleMenuOption = ({ value }) => {
+  const handleMenuOption = ({value}) => {
     switch (value) {
       case "deleteNode":
         nodesDispatch({
@@ -178,7 +182,7 @@ const Node = ({
           return
         }
 
-        onNodeClick({ id, type, x, y, width, height })
+        onNodeClick({id, type, x, y, width, height})
       }}
 
       innerRef={nodeWrapper}
@@ -187,7 +191,14 @@ const Node = ({
       stageState={stageState}
       stageRect={stageRect}
     >
-      <h2 className={styles.label}>{label}</h2>
+      <div className={styles.infoSection}>
+        <div className={styles.iconLabel} style={iconLabelStyles}>{type}</div>
+        <div className={styles.labelWrapper}>
+          <h2 className={styles.label}>{label}</h2>
+          <p className={styles.description}>{description}</p>
+        </div>
+      </div>
+
       <IoPorts
         nodeId={id}
         inputs={inputs}
@@ -196,30 +207,32 @@ const Node = ({
         updateNodeConnections={updateNodeConnections}
         inputData={inputData}
       />
-      {menuOpen ? (
-        <Portal>
-          <ContextMenu
-            x={menuCoordinates.x}
-            y={menuCoordinates.y}
-            options={[
-              ...(deletable !== false
-                ? [
+      {
+        menuOpen ? (
+          <Portal>
+            <ContextMenu
+              x={menuCoordinates.x}
+              y={menuCoordinates.y}
+              options={[
+                ...(deletable !== false
+                  ? [
                     {
                       label: "Delete Node",
                       value: "deleteNode",
                       description: "Deletes a node and all of its connections.",
                     },
                   ]
-                : []),
-            ]}
-            onRequestClose={closeContextMenu}
-            onOptionSelected={handleMenuOption}
-            hideFilter
-            label="Node Options"
-            emptyText="This node has no options."
-          />
-        </Portal>
-      ) : null}
+                  : []),
+              ]}
+              onRequestClose={closeContextMenu}
+              onOptionSelected={handleMenuOption}
+              hideFilter
+              label="Node Options"
+              emptyText="This node has no options."
+            />
+          </Portal>
+        ) : null
+      }
     </Draggable>
   );
 };

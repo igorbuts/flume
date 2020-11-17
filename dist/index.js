@@ -225,7 +225,7 @@ function styleInject(css, ref) {
   }
 }
 
-var css = ".Stage_wrapper__1X5K_ {\n  width: 100%;\n  height: 100%;\n  min-height: 100px;\n  background-color: rgb(26, 28, 29);\n  background-image: linear-gradient(\n      0deg,\n      transparent 24%,\n      rgba(255, 255, 255, 0.04) 25%,\n      rgba(255, 255, 255, 0.04) 26%,\n      transparent 27%,\n      transparent 74%,\n      rgba(255, 255, 255, 0.04) 75%,\n      rgba(255, 255, 255, 0.04) 76%,\n      transparent 77%,\n      transparent\n    ),\n    linear-gradient(\n      90deg,\n      transparent 24%,\n      rgba(255, 255, 255, 0.04) 25%,\n      rgba(255, 255, 255, 0.04) 26%,\n      transparent 27%,\n      transparent 74%,\n      rgba(255, 255, 255, 0.04) 75%,\n      rgba(255, 255, 255, 0.04) 76%,\n      transparent 77%,\n      transparent\n    );\n  color: #000;\n  background-size: 30px 30px;\n  position: relative;\n  overflow: hidden;\n  -webkit-overflow-scrolling: touch;\n  font-family: Helvetica, sans-serif;\n  text-align: left;\n  line-height: 1;\n  outline: none !important;\n}\n.Stage_wrapper__1X5K_ * {\n  box-sizing: border-box;\n}\n.Stage_wrapper__1X5K_ input,\ntextarea,\nselect {\n  font-family: Helvetica, sans-serif;\n}\n.Stage_transformWrapper__3CfIp {\n  transform-origin: center center;\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  width: 0px;\n  height: 0px;\n}\n.Stage_scaleWrapper__2Y7Ck {\n  position: absolute;\n  left: 0px;\n  top: 0px;\n  width: 0px;\n  height: 0px;\n}\n";
+var css = ".Stage_wrapper__1X5K_ {\n  width: 100%;\n  height: 100%;\n  min-height: 100px;\n  background: linear-gradient(90deg, #e2e4e8 21px, transparent 1%) center, linear-gradient(#e2e4e8 21px, transparent 1%) center, #000;\n  background-size: 22px 22px;\n  position: relative;\n  overflow: hidden;\n  -webkit-overflow-scrolling: touch;\n  font-family: Helvetica, sans-serif;\n  text-align: left;\n  line-height: 1;\n  outline: none !important;\n}\n\n.Stage_wrapper__1X5K_ * {\n  box-sizing: border-box;\n}\n\n.Stage_wrapper__1X5K_ input,\ntextarea,\nselect {\n  font-family: Helvetica, sans-serif;\n}\n\n.Stage_transformWrapper__3CfIp {\n  transform-origin: center center;\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  width: 0px;\n  height: 0px;\n}\n\n.Stage_scaleWrapper__2Y7Ck {\n  position: absolute;\n  left: 0px;\n  top: 0px;\n  width: 0px;\n  height: 0px;\n}\n";
 var styles = { "wrapper": "Stage_wrapper__1X5K_", "transformWrapper": "Stage_transformWrapper__3CfIp", "scaleWrapper": "Stage_scaleWrapper__2Y7Ck" };
 styleInject(css);
 
@@ -4642,8 +4642,8 @@ var classnames = createCommonjsModule(function (module) {
 }());
 });
 
-var css$2 = ".Node_wrapper__3SmT7{\n  background: rgba(91, 96, 99, 0.9);\n  border-radius: 5px;\n  box-shadow: 0px 4px 8px rgba(0,0,0,.4);\n  position: absolute;\n  left: 0px;\n  top: 0px;\n  user-select: none;\n  display: flex;\n  flex-direction: column;\n  z-index: 1;\n  cursor: default;\n  border: 1px solid transparent;\n}\n\n.Node_wrapper__3SmT7.Node_active__3wVm5 {\n  border: 1px solid cyan;\n}\n\n.Node_label__3MmhF{\n  color: cyan;\n  font-size: 13px;\n  text-transform: uppercase;\n  padding: 5px;\n  background: #464b4e;\n  border-radius: 5px 5px 0px 0px;\n  margin: 0px;\n  margin-bottom: 3px;\n  border-bottom: 1px solid rgba(0,0,0,.15);\n}\n";
-var styles$2 = { "wrapper": "Node_wrapper__3SmT7", "active": "Node_active__3wVm5", "label": "Node_label__3MmhF" };
+var css$2 = ".Node_wrapper__3SmT7 {\n  background: #bec1cc;\n  border-radius: 6px;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, .4);\n  position: absolute;\n  left: 0;\n  top: 0;\n  user-select: none;\n  display: flex;\n  flex-direction: column;\n  z-index: 1;\n  cursor: default;\n  border: 1px solid transparent;\n}\n\n.Node_wrapper__3SmT7.Node_active__3wVm5 {\n  border: 1px solid #2cd598;\n}\n\n.Node_infoSection__3jT5T {\n  display: flex;\n  padding: 16px 16px 0;\n}\n\n.Node_iconLabel__21cw9 {\n  width: 40px;\n  height: 40px;\n  margin-right: 16px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  border-radius: 6px;\n  color: #000;\n  font-family: 'Barlow', sans-serif;\n  font-size: 16px;\n  font-weight: bold;\n  text-align: center;\n  text-transform: uppercase;\n}\n\n.Node_labelWrapper__1apYB {\n  display: flex;\n  flex-direction: column;\n  margin: 0 0 3px 0;\n}\n\n.Node_label__3MmhF {\n  font-family: 'Barlow', sans-serif;\n  font-size: 16px;\n  font-weight: 600;\n  color: #22252f;\n  text-overflow: clip;\n}\n\n.Node_description__3r_VO {\n  margin: 0;\n  font-family: 'DM-sans', sans-serif;\n  font-size: 14px;\n  color: #767a8c;\n}\n";
+var styles$2 = { "wrapper": "Node_wrapper__3SmT7", "active": "Node_active__3wVm5", "infoSection": "Node_infoSection__3jT5T", "iconLabel": "Node_iconLabel__21cw9", "labelWrapper": "Node_labelWrapper__1apYB", "label": "Node_label__3MmhF", "description": "Node_description__3r_VO" };
 styleInject(css$2);
 
 var css$3 = ".Connection_svg__-fKLY{\n  position: absolute;\n  left: 0px;\n  top: 0px;\n  pointer-events: none;\n  z-index: 0;\n  overflow: visible !important;\n}\n";
@@ -5201,8 +5201,8 @@ var createConnections = function createConnections(nodes, _ref6, editorId) {
   }
 };
 
-var css$4 = ".IoPorts_wrapper__3d2hh{\n  display: flex;\n  flex-direction: column;\n  margin-top: auto;\n  width: 100%;\n  padding: 5px;\n}\n.IoPorts_inputs__2etkb{\n  display: flex;\n  flex-direction: column;\n  justify-content: flex-end;\n  width: 100%;\n  margin-bottom: 10px;\n}\n.IoPorts_inputs__2etkb:last-child{\n    margin-bottom: 0px;\n  }\n.IoPorts_inputs__2etkb .IoPorts_transput__1wbHA:first-child .IoPorts_portLabel__qOE7y, .IoPorts_inputs__2etkb .IoPorts_transput__1wbHA:first-child .IoPorts_port__1_a6J{\n        margin-top: 5px;\n      }\n.IoPorts_inputs__2etkb .IoPorts_transput__1wbHA:last-child .IoPorts_portLabel__qOE7y, .IoPorts_inputs__2etkb .IoPorts_transput__1wbHA:last-child .IoPorts_port__1_a6J{\n        margin-bottom: 5px;\n      }\n.IoPorts_outputs__3JGh-{\n  display: flex;\n  flex-direction: column;\n  margin-left: auto;\n  justify-content: flex-end;\n  align-items: flex-end;\n  width: 100%;\n}\n.IoPorts_outputs__3JGh- .IoPorts_transput__1wbHA:last-child .IoPorts_portLabel__qOE7y, .IoPorts_outputs__3JGh- .IoPorts_transput__1wbHA:last-child .IoPorts_port__1_a6J{\n        margin-bottom: 5px;\n      }\n.IoPorts_outputs__3JGh-:first-child{\n    margin-top: 5px;\n  }\n.IoPorts_transput__1wbHA{\n  display: flex;\n  align-items: center;\n  margin-top: 6px;\n  margin-bottom: 6px;\n}\n.IoPorts_transput__1wbHA:first-child{\n    margin-top: 0px;\n  }\n.IoPorts_transput__1wbHA[data-controlless=\"true\"]{\n    margin-top: 6px;\n    margin-bottom: 6px;\n  }\n.IoPorts_transput__1wbHA[data-controlless=\"true\"]:first-child{\n      margin-top: 0px;\n    }\n.IoPorts_transput__1wbHA[data-controlless=\"false\"]{\n    margin-top: 2px;\n    margin-bottom: 2px;\n  }\n.IoPorts_controls__1dKFt{\n  display: flex;\n  flex-direction: column;\n  width: 100%;\n}\n.IoPorts_portLabel__qOE7y{\n  font-size: 13px;\n  font-weight: 400;\n}\n.IoPorts_port__1_a6J{\n  width: 12px;\n  height: 12px;\n  background: linear-gradient(to bottom, #acb1b4, #919699);\n  border-radius: 100%;\n  margin-right: 5px;\n  margin-left: -11px;\n  flex: 0 0 auto;\n  box-shadow: 0px 2px 1px 0px rgba(0,0,0,.6);\n}\n.IoPorts_port__1_a6J:last-child{\n    margin-right: -11px;\n    margin-left: 5px;\n  }\n.IoPorts_port__1_a6J[data-port-color=\"red\"]{\n    background: linear-gradient(to bottom, #fa4a6f, #c22e4d);\n  }\n.IoPorts_port__1_a6J[data-port-color=\"purple\"]{\n    background: linear-gradient(to bottom, #9e55fb, #6024b6);\n  }\n.IoPorts_port__1_a6J[data-port-color=\"blue\"]{\n    background: linear-gradient(to bottom, #4284f7, #2867d4);\n  }\n.IoPorts_port__1_a6J[data-port-color=\"green\"]{\n    background: linear-gradient(to bottom, #31dd9f, #11ad7a);\n  }\n.IoPorts_port__1_a6J[data-port-color=\"yellow\"]{\n    background: linear-gradient(to bottom, #d6bf47, #9d8923);\n  }\n.IoPorts_port__1_a6J[data-port-color=\"orange\"]{\n    background: linear-gradient(to bottom, #fa7841, #c94b23);\n  }\n.IoPorts_port__1_a6J[data-port-color=\"pink\"]{\n    background: linear-gradient(to bottom, #fe8aeb, #e046c3);\n  }\n";
-var styles$4 = { "wrapper": "IoPorts_wrapper__3d2hh", "inputs": "IoPorts_inputs__2etkb", "transput": "IoPorts_transput__1wbHA", "portLabel": "IoPorts_portLabel__qOE7y", "port": "IoPorts_port__1_a6J", "outputs": "IoPorts_outputs__3JGh-", "controls": "IoPorts_controls__1dKFt" };
+var css$4 = ".IoPorts_wrapper__3d2hh{\n  display: flex;\n  margin-top: auto;\n  width: 100%;\n  padding: 16px 5px 16px 5px;\n}\n.IoPorts_inputs__2etkb{\n  display: flex;\n  flex-direction: column;\n  justify-content: flex-end;\n  width: 100%;\n  /*margin-bottom: 10px;*/\n  /*&:last-child{*/\n  /*  margin-bottom: 0px;*/\n  /*}*/\n  /*.transput{*/\n  /*  &:first-child{*/\n  /*    .portLabel, .port{*/\n  /*      margin-top: 5px;*/\n  /*    }*/\n  /*  }*/\n  /*  &:last-child{*/\n  /*    .portLabel, .port{*/\n  /*      margin-bottom: 5px;*/\n  /*    }*/\n  /*  }*/\n  /*}*/\n}\n.IoPorts_outputs__3JGh-{\n  display: flex;\n  flex-direction: column;\n  margin-left: auto;\n  justify-content: flex-end;\n  align-items: flex-end;\n  width: 100%;\n  /*.transput{*/\n  /*  &:last-child{*/\n  /*    .portLabel, .port{*/\n  /*      margin-bottom: 5px;*/\n  /*    }*/\n  /*  }*/\n  /*}*/\n  /*&:first-child{*/\n  /*  margin-top: 5px;*/\n  /*}*/\n}\n.IoPorts_transput__1wbHA{\n  display: flex;\n  align-items: center;\n  /*margin-top: 6px;*/\n  /*margin-bottom: 6px;*/\n  /*&:first-child{*/\n  /*  margin-top: 0px;*/\n  /*}*/\n  /*&[data-controlless=\"true\"]{*/\n  /*  margin-top: 6px;*/\n  /*  margin-bottom: 6px;*/\n  /*  &:first-child{*/\n  /*    margin-top: 0px;*/\n  /*  }*/\n  /*}*/\n  /*&[data-controlless=\"false\"]{*/\n  /*  margin-top: 2px;*/\n  /*  margin-bottom: 2px;*/\n  /*}*/\n}\n.IoPorts_controls__1dKFt{\n  display: flex;\n  flex-direction: column;\n  width: 100%;\n}\n.IoPorts_portLabel__qOE7y{\n  font-size: 13px;\n  font-weight: 400;\n}\n.IoPorts_port__1_a6J{\n  width: 12px;\n  height: 12px;\n  background: linear-gradient(to bottom, #acb1b4, #919699);\n  border-radius: 100%;\n  margin-right: 5px;\n  margin-left: -11px;\n  flex: 0 0 auto;\n  box-shadow: 0px 2px 1px 0px rgba(0,0,0,.6);\n}\n.IoPorts_port__1_a6J:last-child{\n    margin-right: -11px;\n    margin-left: 5px;\n  }\n.IoPorts_port__1_a6J[data-port-color=\"red\"]{\n    background: linear-gradient(to bottom, #fa4a6f, #c22e4d);\n  }\n.IoPorts_port__1_a6J[data-port-color=\"purple\"]{\n    background: linear-gradient(to bottom, #9e55fb, #6024b6);\n  }\n.IoPorts_port__1_a6J[data-port-color=\"blue\"]{\n    background: linear-gradient(to bottom, #4284f7, #2867d4);\n  }\n.IoPorts_port__1_a6J[data-port-color=\"green\"]{\n    background: linear-gradient(to bottom, #31dd9f, #11ad7a);\n  }\n.IoPorts_port__1_a6J[data-port-color=\"yellow\"]{\n    background: linear-gradient(to bottom, #d6bf47, #9d8923);\n  }\n.IoPorts_port__1_a6J[data-port-color=\"orange\"]{\n    background: linear-gradient(to bottom, #fa7841, #c94b23);\n  }\n.IoPorts_port__1_a6J[data-port-color=\"pink\"]{\n    background: linear-gradient(to bottom, #fe8aeb, #e046c3);\n  }\n";
+var styles$4 = { "wrapper": "IoPorts_wrapper__3d2hh", "inputs": "IoPorts_inputs__2etkb", "outputs": "IoPorts_outputs__3JGh-", "transput": "IoPorts_transput__1wbHA", "controls": "IoPorts_controls__1dKFt", "portLabel": "IoPorts_portLabel__qOE7y", "port": "IoPorts_port__1_a6J" };
 styleInject(css$4);
 
 var css$5 = ".Control_wrapper__VZIiC {\n  width: 100%;\n  padding-right: 3px;\n  padding-top: 3px;\n  padding-bottom: 5px;\n}\n.Control_label__1OX-Q {\n  font-size: 14px;\n}\n.Control_controlLabel__3ga2- {\n  font-size: 13px;\n  display: inline-block;\n  margin-left: 2px;\n}\n";
@@ -6050,6 +6050,8 @@ var Node = function Node(_ref) {
   var stageState = React__default.useContext(StageContext);
   var _nodeTypes$type = nodeTypes[type],
       label = _nodeTypes$type.label,
+      description = _nodeTypes$type.description,
+      iconColor = _nodeTypes$type.iconColor,
       deletable = _nodeTypes$type.deletable,
       _nodeTypes$type$input = _nodeTypes$type.inputs,
       inputs = _nodeTypes$type$input === undefined ? [] : _nodeTypes$type$input,
@@ -6076,6 +6078,10 @@ var Node = function Node(_ref) {
 
   var byScale = function byScale(value) {
     return 1 / stageState.scale * value;
+  };
+
+  var iconLabelStyles = {
+    backgroundColor: iconColor
   };
 
   var updateConnectionsByTransput = function updateConnectionsByTransput() {
@@ -6204,9 +6210,27 @@ var Node = function Node(_ref) {
       stageRect: stageRect
     },
     React__default.createElement(
-      "h2",
-      { className: styles$2.label },
-      label
+      "div",
+      { className: styles$2.infoSection },
+      React__default.createElement(
+        "div",
+        { className: styles$2.iconLabel, style: iconLabelStyles },
+        type
+      ),
+      React__default.createElement(
+        "div",
+        { className: styles$2.labelWrapper },
+        React__default.createElement(
+          "h2",
+          { className: styles$2.label },
+          label
+        ),
+        React__default.createElement(
+          "p",
+          { className: styles$2.description },
+          description
+        )
+      )
     ),
     React__default.createElement(IoPorts, {
       nodeId: id,
@@ -6384,6 +6408,9 @@ var FlumeConfig = function () {
       if (typeof config.type !== "string") {
         throw new Error("Required key, \"type\" must be a string when calling addNodeType.");
       }
+      if (typeof config.iconColor !== "string") {
+        throw new Error("\"iconColor\" must be a string when calling addNodeType.");
+      }
       if (typeof config.initialWidth !== "undefined" && typeof config.initialWidth !== "number") {
         throw new Error("Optional key, \"initialWidth\" must be a number when calling addNodeType.");
       }
@@ -6395,7 +6422,8 @@ var FlumeConfig = function () {
         label: define(config.label, ""),
         description: define(config.description, ""),
         addable: define(config.addable, true),
-        deletable: define(config.deletable, true)
+        deletable: define(config.deletable, true),
+        iconColor: define(config.iconColor, "#60eaff")
       };
       if (config.initialWidth) {
         node.initialWidth = config.initialWidth;

@@ -2,33 +2,8 @@
   width: 100%;
   height: 100%;
   min-height: 100px;
-  background-color: rgb(26, 28, 29);
-  background-image: linear-gradient(
-      0deg,
-      transparent 24%,
-      rgba(255, 255, 255, 0.04) 25%,
-      rgba(255, 255, 255, 0.04) 26%,
-      transparent 27%,
-      transparent 74%,
-      rgba(255, 255, 255, 0.04) 75%,
-      rgba(255, 255, 255, 0.04) 76%,
-      transparent 77%,
-      transparent
-    ),
-    linear-gradient(
-      90deg,
-      transparent 24%,
-      rgba(255, 255, 255, 0.04) 25%,
-      rgba(255, 255, 255, 0.04) 26%,
-      transparent 27%,
-      transparent 74%,
-      rgba(255, 255, 255, 0.04) 75%,
-      rgba(255, 255, 255, 0.04) 76%,
-      transparent 77%,
-      transparent
-    );
-  color: #000;
-  background-size: 30px 30px;
+  background: linear-gradient(90deg, #e2e4e8 21px, transparent 1%) center, linear-gradient(#e2e4e8 21px, transparent 1%) center, #000;
+  background-size: 22px 22px;
   position: relative;
   overflow: hidden;
   -webkit-overflow-scrolling: touch;
@@ -37,14 +12,17 @@
   line-height: 1;
   outline: none !important;
 }
+
 .wrapper * {
   box-sizing: border-box;
 }
+
 .wrapper input,
 textarea,
 select {
   font-family: Helvetica, sans-serif;
 }
+
 .transformWrapper {
   transform-origin: center center;
   position: absolute;
@@ -53,6 +31,7 @@ select {
   width: 0px;
   height: 0px;
 }
+
 .scaleWrapper {
   position: absolute;
   left: 0px;
