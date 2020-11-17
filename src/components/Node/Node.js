@@ -12,7 +12,6 @@ import {Portal} from "react-portal";
 import ContextMenu from "../ContextMenu/ContextMenu";
 import IoPorts from "../IoPorts/IoPorts";
 import Draggable from "../Draggable/Draggable";
-import {NODE_TYPES} from "../../constants";
 
 const Node = ({
                 id,
