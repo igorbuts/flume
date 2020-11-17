@@ -1,10 +1,10 @@
-.wrapper{
-  background: rgba(91, 96, 99, 0.9);
-  border-radius: 5px;
-  box-shadow: 0px 4px 8px rgba(0,0,0,.4);
+.wrapper {
+  background: #bec1cc;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, .4);
   position: absolute;
-  left: 0px;
-  top: 0px;
+  left: 0;
+  top: 0;
   user-select: none;
   display: flex;
   flex-direction: column;
@@ -14,17 +14,47 @@
 }
 
 .wrapper.active {
-  border: 1px solid cyan;
+  border: 1px solid #2cd598;
 }
 
-.label{
-  color: cyan;
-  font-size: 13px;
+.infoSection {
+  display: flex;
+  padding: 16px 16px 0;
+}
+
+.iconLabel {
+  width: 40px;
+  height: 40px;
+  margin-right: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  color: #000;
+  font-family: 'Barlow', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
   text-transform: uppercase;
-  padding: 5px;
-  background: #464b4e;
-  border-radius: 5px 5px 0px 0px;
-  margin: 0px;
-  margin-bottom: 3px;
-  border-bottom: 1px solid rgba(0,0,0,.15);
+}
+
+.labelWrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 3px 0;
+}
+
+.label {
+  font-family: 'Barlow', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #22252f;
+  text-overflow: clip;
+}
+
+.description {
+  margin: 0;
+  font-family: 'DM-sans', sans-serif;
+  font-size: 14px;
+  color: #767a8c;
 }
