@@ -54,8 +54,7 @@ const IoPorts = ({
   const triggerRecalculation = React.useContext(ConnectionRecalculateContext);
   const resolvedInputs = useTransputs(inputs, 'input', nodeId, inputData, connections);
   const resolvedOutputs = useTransputs(outputs, 'output', nodeId, inputData, connections);
-  console.log(resolvedInputs);
-  console.log(resolvedOutputs);
+
   return (
     <div className={styles.wrapper}>
       {resolvedInputs.length ? (
